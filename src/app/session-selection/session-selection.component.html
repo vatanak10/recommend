@@ -3,15 +3,15 @@
   Are you interested / planning to join this event?
 </p>
 <div class="image">
-  <img
-    src="https://firebasestorage.googleapis.com/v0/b/kirirom-forum-chatbot.appspot.com/o/session%2FA01%EF%BC%9A%E6%96%B0%E5%9E%8B%E3%82%B3%E3%83%AD%E3%83%8A%E5%AF%BE%E7%AD%96%E3%81%A8%E6%97%A5%E6%9C%AC%E3%81%AE%E8%B2%A1%E6%94%BF.png?alt=media&token=25a33a3a-f817-4819-bb04-61e7a2482640"
-    alt="session recommendation"
-    id="sessionimage"
-  />
+  <img [src]="images[i]" alt="session recommendation" id="sessionimage" />
 </div>
 <div style="margin-left: 30%">
-  <div class="left"><button class="join" id="btnj">✓</button></div>
-  <div class="left"><button class="join" id="btnj">×</button></div>
+  <div class="left">
+    <button class="join" id="btnj" (click)="like()">✓</button>
+  </div>
+  <div class="left">
+    <button class="join" id="btnj" (click)="dislike()">×</button>
+  </div>
 </div>
 <script
   type="text/javascript"
