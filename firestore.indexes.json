@@ -1,0 +1,19 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "round_table",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "tableName",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "tableOwnerId",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
