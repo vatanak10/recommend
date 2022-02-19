@@ -8,6 +8,11 @@ import { SessionSelectionComponent } from './session-selection/session-selection
 import { ResultComponent } from './result/result.component';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
 const appRoutes: Routes = [
   {
     path: '',
@@ -17,7 +22,19 @@ const appRoutes: Routes = [
     path: 'result',
     component: ResultComponent
   }
-]
+];
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBN1OjGV_lpi4XMVm4tQUBR2w9iJUVguxo",
+  authDomain: "kirirom-forum-chatbot.firebaseapp.com",
+  databaseURL: "https://kirirom-forum-chatbot-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "kirirom-forum-chatbot",
+  storageBucket: "kirirom-forum-chatbot.appspot.com",
+  messagingSenderId: "1047652526437",
+  appId: "1:1047652526437:web:94d67691d74f8b5284d98c",
+  measurementId: "G-FZM9MWH2RB"
+};
 
 @NgModule({
   declarations: [
@@ -29,7 +46,11 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
+    AngularFireStorageModule // storage
   ],
   providers: [],
   bootstrap: [AppComponent]
