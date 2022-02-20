@@ -10,14 +10,14 @@
 
 export const environment = {
   production: false,
-  firebase: {
+  firebaseConfig: {
     apiKey: "AIzaSyBN1OjGV_lpi4XMVm4tQUBR2w9iJUVguxo",
     authDomain: "kirirom-forum-chatbot.firebaseapp.com",
     databaseURL: "https://kirirom-forum-chatbot-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "kirirom-forum-chatbot",
     storageBucket: "kirirom-forum-chatbot.appspot.com",
     messagingSenderId: "1047652526437",
-    appId: "1:1047652526437:web:94d67691d74f8b5284d98c",
-    measurementId: "G-FZM9MWH2RB"
+    appId: "1:1047652526437:web:fec9d8359b5d40b984d98c",
+    measurementId: "G-YYBXWNG94Y"
   }
 };

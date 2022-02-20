@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
@@ -25,12 +26,21 @@ export class SessionSelectionComponent implements OnInit {
     // colRef = collection(db, 'session');
     // getDocs(colRef).then(docs => console.log(docs));
     this.data = this.db.collection('session').get().subscribe(snapshot => console.log(snapshot.docs));
-  }
+
+    }
 
   ngOnInit(): void {
     console.log(this.images);
+    // this.getData();
   }
 
+  async getData() {
+    this.data = this.db.collection('session').doc('A7');
+    const snapshot = await this.data.get();
+    snapshot.forEach((doc: any) => {
+      console.log(doc.id, '=>', doc.data());
+    });
+  }
 
 
   like() {
