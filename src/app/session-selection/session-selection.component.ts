@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-session-selection',
@@ -17,7 +18,7 @@ export class SessionSelectionComponent implements OnInit {
   likes: string[] = [];
   i = 0;
 
-  constructor(private router: Router, private db: AngularFirestore) {
+  constructor(private router: Router, private db: AngularFirestore, private dataService: DataService) {
     // this.images = this.afs.collection('session').valueChanges;
     // this.db.collection('session').get().then(snapshot => console.log(snapshot.docs));
 
@@ -33,17 +34,20 @@ export class SessionSelectionComponent implements OnInit {
 
 
   like() {
-    if (this.images.length == 1) { this.router.navigate(['result'])}
-    this.likes.push(this.images[this.i]);
+    // this.likes.push(this.images[this.i]);
+    this.dataService.addLikes(this.images[this.i]);
     this.images.splice(this.i, 1);
+
+    if (this.images.length == 0) { this.router.navigate(['result'])}
 
     console.log(this.images);
     console.log(this.likes);
   }
 
   dislike() {
-    if (this.images.length == 1) { this.router.navigate(['result'])}
     this.images.splice(this.i, 1);
+
+    if (this.images.length == 0) { this.router.navigate(['result'])}
 
     console.log(this.images);
     console.log(this.likes);

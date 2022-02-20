@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-result',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result.component.scss']
 })
 export class ResultComponent implements OnInit {
+  likes: any;
 
-  constructor() { }
+  constructor(private dataService: DataService) {
+    this.likes = this.dataService.getLikes();
+  }
 
   ngOnInit(): void {
   }

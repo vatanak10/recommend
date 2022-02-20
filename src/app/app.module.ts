@@ -12,6 +12,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { DataService } from './services/data.service';
 
 const appRoutes: Routes = [
   {
@@ -52,7 +53,7 @@ const firebaseConfig = {
     AngularFireAuthModule, // auth
     AngularFireStorageModule // storage
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
