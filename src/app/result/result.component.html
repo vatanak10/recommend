@@ -1,0 +1,10 @@
+<br />
+<p *ngIf="likes.length == 0" style="text-align: center; font-size: 20px">
+  You didn't like any of the events yet.
+</p>
+<p *ngIf="likes.length > 0" style="text-align: center; font-size: 20px">
+  Here are the events that you liked:
+</p>
+<div *ngFor="let i of likes" class="image">
+  <img [src]="i" alt="session result" />
+</div>
